@@ -1,9 +1,8 @@
 .normal {
   margin: 4em;
   text-align: left;
-  overflow: hidden;
-  overflow-y: hidden;
-  overflow-y: hidden;
+  height: 100%;
+  position: relative;
 }
 
 .welcome {
@@ -24,9 +23,11 @@
 }
 
 .footer {
-  position: absolute;
+  position: relative;
   text-align: center;
-  bottom: 15px;
+  bottom: 10px;
   text-align: center;
   width: 100%;
+  padding: 1em;
+  margin: 1em;
 }

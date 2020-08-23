@@ -83,7 +83,7 @@ const StatView: React.FC<IProps> = ({ images, imageData }: IProps) => {
     });
   });
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <h2>Stats</h2>
       <Table columns={columns} dataSource={data} pagination={{ hideOnSinglePage: true }} />
     </div>
