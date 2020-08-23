@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/charts": "^0.9.11",
+    "@ant-design/icons": "^4.2.2",
     "@umijs/plugin-model": "^2.5.3",
     "antd": "^4.5.4",
     "axios": "^0.19.2",
@@ -18,6 +19,7 @@
     "koa-json": "^2.0.2",
     "koa-logger": "^3.2.1",
     "koa-router": "^9.4.0",
+    "moment": "^2.27.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "string-hex": "^1.0.0"

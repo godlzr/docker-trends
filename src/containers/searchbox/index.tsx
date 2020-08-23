@@ -24,6 +24,7 @@ const searchResult = async (keyword: string) => {
       options: officialImages.map((item: any) => {
         return {
           value: item.name,
+          image: item,
           label: (
             <div>
               <span
@@ -32,7 +33,15 @@ const searchResult = async (keyword: string) => {
                   marginRight: '1em',
                 }}
               >
-                {item.logo_url && <Avatar src={item.logo_url[Object.keys(item.logo_url)[0]]} />}
+                {item.logo_url && (
+                  <Avatar
+                    src={
+                      item.logo_url['small'] ||
+                      item.logo_url['large'] ||
+                      'https://hub.docker.com/favicon.ico'
+                    }
+                  />
+                )}
               </span>
               <span
                 style={{
@@ -52,6 +61,7 @@ const searchResult = async (keyword: string) => {
       options: commnityImages.map((item: any) => {
         return {
           value: item.name,
+          image: item,
           label: (
             <div>
               <span
@@ -88,8 +98,9 @@ const SearchBox: React.FC<IProps> = ({ addImage }: IProps) => {
   const onChange = async (keywords: any) => {
     setOptions(await searchResult(keywords));
   };
-  const onSelect = (image: any) => {
-    addImage(image);
+  const onSelect = (_: any, option: any) => {
+    console.log(option);
+    addImage(option.image);
   };
   return (
     <div>

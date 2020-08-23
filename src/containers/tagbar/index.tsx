@@ -26,14 +26,14 @@ const TagBar: React.FC<IProps> = ({ images, removeImage }: IProps) => {
     <div style={{ margin: '1em' }}>
       {images.map((img, ind) => {
         return (
-          <span key={img}>
+          <span key={img.slug}>
             <Tag
               style={{ fontSize: '13px' }}
               color={colors[ind]}
               closable
               onClose={() => removeImage(img)}
             >
-              {img}
+              {img.name}
             </Tag>
           </span>
         );

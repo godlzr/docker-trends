@@ -1,33 +1,41 @@
-import React, { useState } from "react";
-import { GroupedBar } from "@ant-design/charts";
+import React, { useState } from 'react';
+import { Bar } from '@ant-design/charts';
 
 interface IProps {
   imageData: any[];
-  removeImage: Function;
 }
 
 const ChartView: React.FC<IProps> = ({ imageData }: IProps) => {
-  console.log(imageData);
-
-  const data: any[] = [];
+  if (imageData.length === 0) return <div />;
+  const pullData: any[] = [];
+  const starData: any[] = [];
   imageData.map((img: any) => {
-    data.push({ image: img.name, type: "downloads", value: img.pull_count });
-    data.push({ image: img.name, type: "stars", value: img.star_count });
+    pullData.push({ image: img.name, type: 'downloads', downloads: img.pull_count });
+    starData.push({ image: img.name, type: 'stars', stars: img.star_count });
   });
 
-  const config = {
-    title: {
-      visible: true,
-      text: "download counts",
-    },
+  const pullConfig = {
     forceFit: true,
-    data,
-    groupField: "type",
-    color: ["#1383ab", "#c52125"],
-    xField: "value",
-    yField: "image",
+    data: pullData,
+    groupField: 'type',
+    xField: 'downloads',
+    yField: 'image',
   };
-  return <GroupedBar {...config} />;
+  const starConfig = {
+    forceFit: true,
+    data: starData,
+    groupField: 'type',
+    color: 'red',
+    xField: 'stars',
+    yField: 'image',
+  };
+  return (
+    <div>
+      <h2>Pulls</h2>
+      <Bar {...pullConfig} />
+      {/* <Bar {...starConfig} /> */}
+    </div>
+  );
 };
 
 export default ChartView;
