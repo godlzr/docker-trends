@@ -4,6 +4,7 @@
     "start:app": "umi dev",
     "start:api": "deno run --allow-net ./api/index.ts",
     "build": "umi build",
+    "start": "http-server ./dist",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix",
     "precommit": "lint-staged"
