@@ -1,5 +1,10 @@
 import { Application, Router } from 'https://deno.land/x/oak/mod.ts';
 import { oakCors } from 'https://deno.land/x/cors/mod.ts';
+import { parse } from 'https://deno.land/std/flags/mod.ts';
+
+const { args } = Deno;
+const DEFAULT_PORT = 3000;
+const argPort = parse(args).port;
 
 const router = new Router();
 
@@ -51,4 +56,4 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 console.log(`[INFO] Server is running port 3000`);
-await app.listen({ port: 3000 });
+await app.listen({ port: argPort ? Number(argPort) : DEFAULT_PORT });
