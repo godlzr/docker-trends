@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start:app": "umi dev",
-    "start": "deno run --allow-net --allow-read ./api/index.ts",
+    "start:api": "deno run --allow-net --allow-read ./api/index.ts",
     "build": "umi build",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix",

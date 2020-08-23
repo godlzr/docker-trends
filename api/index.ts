@@ -55,5 +55,5 @@ app.use(
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-console.log(`[INFO] Server is running port 3000`);
+console.log(`[INFO] Server is running port ${argPort ? Number(argPort) : DEFAULT_PORT}`);
 await app.listen({ port: argPort ? Number(argPort) : DEFAULT_PORT });
