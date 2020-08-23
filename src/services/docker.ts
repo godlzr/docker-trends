@@ -18,5 +18,5 @@ export function fetchImages(imageName: string, source = 'community', page = 1, p
 }
 
 export function fetchImageData(imageName: string, repo = 'library') {
-  return axios.get(`http://localhost:3000/repositories/${repo}/${imageName}/`);
+  return axios.get(`${window.location.origin}/repositories/${repo}/${imageName}/`);
 }
