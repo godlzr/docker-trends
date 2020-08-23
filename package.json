@@ -2,9 +2,8 @@
   "private": true,
   "scripts": {
     "start:app": "umi dev",
-    "start:api": "deno run --allow-net ./api/index.ts",
+    "start": "deno run --allow-net --allow-read ./api/index.ts",
     "build": "umi build",
-    "start": "http-server ./dist",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix",
     "precommit": "lint-staged"
@@ -15,7 +14,6 @@
     "@umijs/plugin-model": "^2.5.3",
     "antd": "^4.5.4",
     "axios": "^0.19.2",
-    "http-server": "^0.12.3",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-json": "^2.0.2",
@@ -24,7 +22,6 @@
     "moment": "^2.27.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "string-hex": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
