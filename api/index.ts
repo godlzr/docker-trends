@@ -4,7 +4,7 @@ import { oakCors } from 'https://deno.land/x/cors/mod.ts';
 const router = new Router();
 
 router
-  .post('/repositories/:repo/:image', async context => {
+  .get('/repositories/:repo/:image', async context => {
     const { repo, image } = context.params;
     console.log(`[INFO] GET Request ${repo} ${image}`);
     const imageRes = await fetch(`https://hub.docker.com/v2/repositories/${repo}/${image}/`);
