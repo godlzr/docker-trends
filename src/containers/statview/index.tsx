@@ -67,10 +67,12 @@ const StatView: React.FC<IProps> = ({ images, imageData }: IProps) => {
   console.log(imageData);
   const data: any[] = [];
   imageData.forEach((image, ind) => {
-    const archs = images[ind].architectures.sort((a, b) => {
-      if (a.name > b.name) return 1;
-      return -1;
-    });
+    const archs = images[ind].architectures
+      ? images[ind].architectures.sort((a, b) => {
+          if (a.name > b.name) return 1;
+          return -1;
+        })
+      : [];
     const size = (image.results[0].images[0].size / 1048576).toFixed(2);
     data.push({
       key: ind,
