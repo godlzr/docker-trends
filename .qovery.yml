@@ -1,0 +1,17 @@
+application:
+  name: docker-trends
+  project: docker-trends
+  cloud_region: aws/us-east-2
+databases:
+- type: postgresql
+  version: "11"
+  name: my-postgresql-database
+- type: mongodb
+  version: "3.6"
+  name: my-mongodb-969439
+routers:
+- name: main
+  routes:
+  - application_name: docker-trends
+    paths:
+    - /*

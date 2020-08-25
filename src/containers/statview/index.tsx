@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Tag, Space } from 'antd';
+import { DashboardTwoTone, FireTwoTone } from '@ant-design/icons';
 import moment from 'moment';
 
 interface IProps {
@@ -20,22 +21,34 @@ const StatView: React.FC<IProps> = ({ images, imageData }: IProps) => {
   if (imageData.length === 0) return <div />;
   const columns = [
     {
-      title: 'Image Name',
+      title: 'Name',
       dataIndex: 'name',
       key: 'name',
       render: (text: string) => (
-        <a link={`https://hub.docker.com/search?q=${text}&type=image`}>{text}</a>
+        <a href={`https://hub.docker.com/search?q=${text}&type=image`} target="_blank">
+          {text}
+        </a>
       ),
-    },
-    {
-      title: 'Downloads',
-      dataIndex: 'pulls',
-      key: 'pulls',
     },
     {
       title: 'Stars',
       dataIndex: 'stars',
       key: 'stars',
+    },
+    {
+      title: `Downloads`,
+      dataIndex: 'pulls',
+      key: 'pulls',
+    },
+    {
+      title: '',
+      dataIndex: 'pulls',
+      key: 'pulls',
+      render: data => (
+        <>
+          <FireTwoTone twoToneColor={data > 10000000 ? 'red' : data > 10000 ? 'orange' : ''} />
+        </>
+      ),
     },
     {
       title: 'Architectures',
@@ -59,9 +72,20 @@ const StatView: React.FC<IProps> = ({ images, imageData }: IProps) => {
       key: 'updated',
     },
     {
-      title: 'Size (may not accurate)',
+      title: 'Size (the latest tag)',
       dataIndex: 'size',
       key: 'size',
+      render: data => <>{`${data} MB `}</>,
+    },
+    {
+      title: '',
+      dataIndex: 'size',
+      key: 'size',
+      render: data => (
+        <>
+          <DashboardTwoTone twoToneColor={data < 100 ? '#52c41a' : data > 500 ? 'red' : ''} />
+        </>
+      ),
     },
   ];
   const data: any[] = [];
@@ -87,7 +111,7 @@ const StatView: React.FC<IProps> = ({ images, imageData }: IProps) => {
       stars: image.star_count,
       architectures: archs,
       updated: moment(image.last_updated).format('MMM Do YYYY'),
-      size: `${size} MB`,
+      size: size,
     });
   });
   return (
