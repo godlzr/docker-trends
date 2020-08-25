@@ -3,6 +3,7 @@
   "scripts": {
     "start:app": "umi dev",
     "start:api": "deno run --allow-net --allow-read ./api/index.ts",
+    "dev": "concurrently --kill-others \"yarn start:api\" \"yarn start:app\"",
     "build": "umi build",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix",
