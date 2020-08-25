@@ -17,6 +17,12 @@ export function fetchImages(imageName: string, source = 'community', page = 1, p
   }
   return axios.get(
     `https://hub.docker.com/api/content/v1/products/search?source=community&q=${imageName}&page=${page}&page_size=${perPage}`,
+    {
+      headers: {
+        Accept: 'application/json',
+        'Search-Version': 'v3',
+      },
+    },
   );
 }
 
