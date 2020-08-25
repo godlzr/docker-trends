@@ -64,14 +64,22 @@ const StatView: React.FC<IProps> = ({ images, imageData }: IProps) => {
       key: 'size',
     },
   ];
-  console.log(imageData);
   const data: any[] = [];
+  console.log(imageData);
+
   imageData.forEach((image, ind) => {
-    const archs = images[ind].architectures.sort((a, b) => {
-      if (a.name > b.name) return 1;
-      return -1;
-    });
-    const size = (image.results[0].images[0].size / 1048576).toFixed(2);
+    const archs = images[ind].architectures
+      ? images[ind].architectures.sort((a, b) => {
+          if (a.name > b.name) return 1;
+          return -1;
+        })
+      : [];
+    let size;
+    try {
+      size = (image.results[0].images[0].size / 1048576).toFixed(2);
+    } catch (e) {
+      console.warn('size not available');
+    }
     data.push({
       key: ind,
       name: image.name,
@@ -83,7 +91,7 @@ const StatView: React.FC<IProps> = ({ images, imageData }: IProps) => {
     });
   });
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <h2>Stats</h2>
       <Table columns={columns} dataSource={data} pagination={{ hideOnSinglePage: true }} />
     </div>

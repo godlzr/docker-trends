@@ -1,9 +1,9 @@
 .normal {
-  margin: 4em;
+  margin: auto;
   text-align: left;
-  overflow: hidden;
-  overflow-y: hidden;
-  overflow-y: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }
 
 .welcome {
@@ -22,11 +22,20 @@
 .list code {
   background: #f7f7f7;
 }
-
+.content {
+  position: relative;
+  text-align: left;
+  height: 95%;
+  left: 0px;
+  padding: 3em;
+  width: 100%;
+  display: block;
+  overflow: auto;
+}
 .footer {
-  position: absolute;
+  position: relative;
   text-align: center;
-  bottom: 15px;
-  text-align: center;
+  height: 5%;
+  left: 0px;
   width: 100%;
 }

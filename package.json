@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start:app": "umi dev",
-    "start:api": "deno run --allow-net ./api/index.ts",
+    "start:api": "deno run --allow-net --allow-read ./api/index.ts",
     "build": "umi build",
     "test": "umi test",
     "lint": "eslint {src,mock,tests}/**/*.{ts,tsx} --fix",
@@ -21,8 +21,7 @@
     "koa-router": "^9.4.0",
     "moment": "^2.27.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "string-hex": "^1.0.0"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",

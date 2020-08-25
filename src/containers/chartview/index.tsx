@@ -30,7 +30,7 @@ const ChartView: React.FC<IProps> = ({ imageData }: IProps) => {
     yField: 'image',
   };
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <h2>Pulls</h2>
       <Bar {...pullConfig} />
       {/* <Bar {...starConfig} /> */}

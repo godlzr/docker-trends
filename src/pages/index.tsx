@@ -47,17 +47,19 @@ export default function() {
   };
   return (
     <div className={styles.normal}>
-      <h1>
-        Docker Image Trends{' '}
-        <a href="https://github.com/godlzr/docker-trends">
-          <GithubOutlined />
-        </a>
-      </h1>
-      <h2>Compare the free images</h2>
-      <SearchBox addImage={addImage} />
-      <TagBar images={images} removeImage={removeImage} />
-      <ChartView imageData={imageData} />
-      <StatView images={images} imageData={imageData} />
+      <div className={styles.content}>
+        <h1>
+          Docker Image Trends{' '}
+          <a href="https://github.com/godlzr/docker-trends">
+            <GithubOutlined />
+          </a>
+        </h1>
+        <h2>Compare the free images</h2>
+        <SearchBox addImage={addImage} />
+        <TagBar images={images} removeImage={removeImage} />
+        <ChartView imageData={imageData} />
+        <StatView images={images} imageData={imageData} />
+      </div>
       <div className={styles.footer}>
         Made by <a href="https://github.com/godlzr">Zhongrui Li </a>
         Inspried by <a href="https://www.npmtrends.com/">npm trends</a>
