@@ -1,5 +1,5 @@
 # docker-trends
 
-https://docker-trends.herokuapp.com/
+https://imagetrends.godlzr.com/
 
 ### React + Antd + Deno
